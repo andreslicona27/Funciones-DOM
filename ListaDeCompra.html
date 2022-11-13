@@ -1,0 +1,41 @@
+<!-- Crear una lista de la compra en la cual se vean dos botones con los que se pueda agreagr o eliminar un elemento de la lista  -->
+<!DOCTYPE html>
+
+<head>
+    <title>Ejercicio de la lista de la compra</title>
+    
+    <script type="text/javascript">
+        function agregar() {
+            var elemento = document.createElement("li");
+            var producto = prompt("Agrega un elemento a la lista");
+            var texto = document.createTextNode(producto);
+
+            elemento.appendChild(texto);
+            var lista = document.getElementById("lista");
+            lista.appendChild(elemento);
+        }
+
+        function borrar() {
+            var producto = prompt("¿Qué producto quieres eliminar?");
+            var listado = document.getElementsByTagName("li");
+            for(i=0; i<listado.length; i++){
+                if(listado[i].innerHTML===producto){
+                    listado[i].parentNode.removeChild(listado[i]);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>LISTA DE LA COMPRA</h1>
+    <ul id="lista" style="font-size:20px;">
+        <li>Leche</li>
+        <li>Huevos</li>
+        <li>Azúcar</li>
+    </ul>
+    <input type="button" value="Añadir elemento" onclick="agregar();"> 
+    <input type="button" value="Eliminar elemento" onclick="borrar();">
+</body>
+
+</html>
