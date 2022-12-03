@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+    <head>
+        <title>Ejercicio 1</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            // PARTE UNO DEL EJERCICIO 
+            document.getElementById("alimentacion").onclick = anadirComida;
+            document.getElementById("higiene").onclick = anadirHigiene;
+            document.getElementById("hogar").onclick = anadirHogar;
+
+            function anadirComida(){    
+                var listado = document.getElementById("alimentacion");
+                
+                var texto = prompt("Dame el producto que deseas agregar: ");
+                var elemento = document.createElement("ol");
+                var texto = document.createTextNode(producto);
+
+                elemento.appendChild(texto);
+                listado.appendChild(elemento);
+            }
+
+            // PARTE DOS DEL EJERCICIO 
+            document.getElementById('borrar').onclick = tacharElemento;
+
+            function tacharElemento(){
+                var producto = prompt("Dame el elemento que deseas tachar: ");
+                var listado = document.getElementsByTagName("ol");
+
+                for(i = 0; i < listado.length; i++){
+                    if (listado[i].innerHTML == producto){
+                        listado[i].style = "textDecoration = \"line-through\"";
+                    }
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1>Mi lista</h1>
+            <h3>Alimentación</h3>
+            <ol id="alimentacion"></ol>
+
+            <h3>Hogar</h3>
+            <ol id="hogar"></ol>
+
+            <h3>Higiene</h3>
+            <ol id="higiene"></ol>
+
+        <button id="borrar">Tachar elemento</button>
+    </body>
+</html>
