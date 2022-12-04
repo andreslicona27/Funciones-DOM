@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+    <head>
+        <title>Ejercicio 3</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            #imagen{
+                background-image: url("imagen1g.jpg");
+            }
+            div{
+            width:900px;
+            height:500px;
+            border:solid 2px black;
+            background-size: auto;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+        </style>
+        <script type="text/javascript">
+            window.onload = function() {
+                var list = document.getElementsByTagName("h5");
+
+                for (i in list) {
+                    list[i].onmousemove = showImage;
+                }
+            }
+
+            function showImage(){
+                var boxImage = document.getElementById("imagen");
+                if(this.innerHTML == "Imagen1"){
+                    boxImage.style.backgroundImage = "url(\"imagen1g.jpg\")";
+                }
+
+                if (this.innerHTML == "Imagen2"){
+                    boxImage.style.backgroundImage = "url(\"imagen2g.jpg\")";
+                }
+
+                if (this.innerHTML == "Imagen3"){
+                    boxImage.style.backgroundImage = "url(\"imagen3g.jpg\")";
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <h3>Mostrar imágenes</h3>
+        <h5>Imagen1</h5>
+        <h5>Imagen2</h5>
+        <h5>Imagen3</h5>
+        <div id="imagen"></div>
+    </body>
+</html>

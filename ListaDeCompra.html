@@ -6,12 +6,13 @@
     
     <script type="text/javascript">
         function agregar() {
+            var lista = document.getElementById("lista");
+            
             var elemento = document.createElement("li");
             var producto = prompt("Agrega un elemento a la lista");
             var texto = document.createTextNode(producto);
 
             elemento.appendChild(texto);
-            var lista = document.getElementById("lista");
             lista.appendChild(elemento);
         }
 

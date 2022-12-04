@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <head>
+        <title>Ejercicio 2</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            #caja{border:solid 2px; width:400px;
+                height:400px; margin:100px;
+                font-size:250px;display:flex;justify-content: center;
+                align-items:center;}
+        </style>
+        <script type="text/javascript">
+            window.onload = function(){
+                document.onkeypress = showLetter;
+
+                var head = document.getElementById("encabezado");
+                head.onclick = changeLetter;
+            }
+
+            function showLetter(objEvent){
+                var box = document.getElementById("caja");
+                var character = objEvent.charCode;
+                var letter = String.fromCharCode(character);
+
+                box.style.color = "black";
+                box.innerHTML = letter;
+            }
+
+            function changeLetter(){
+                var box = document.getElementById("caja");
+
+                box.style.color = "red";
+                box.innerHTML = box.innerHTML.toUpperCase();
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1 id="encabezado"> Pulsa una tecla </h1>
+        <div id="caja"></div>
+    </body>
+</html>

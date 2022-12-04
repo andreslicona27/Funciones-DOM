@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <head>
+        <title>Ejercicio 3</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style type="text/css">
+            body {font-family: arial, helvetica;}
+            #info {width:160px; border:thin solid silver; padding:.5em; position:fixed;}
+            #info h1 {margin: 0;}
+        </style>
+
+        <script type="text/javascript">
+            document.onclick = information;
+            document.onmousemove = information;
+            document.onkeypress = information;
+            
+            function information(event) {
+                var info = document.getElementById("info");
+                var currentEvent = event || window.event;
+
+                switch(currentEvent.type) {
+                    case 'click':
+                        info.style.backgroundColor = '#ffcccc';
+                        break;
+
+                    case 'mousemove':
+                        var positionX = currentEvent.screenX;
+                        var positionY = currentEvent.screenY;
+
+                        info.innerHTML = '<h1>Ratón</h1>' +
+                        '<p>[' + positionX + ',' + positionY + ']</p>';
+                        
+                        info.style.backgroundColor = '#ffffff';
+                        break;
+
+                    case 'keypress':
+                        var character = currentEvent.charCode || currentEvent.keyCode;
+                        var letter = String.fromCharCode(character);
+                        var code = letter.charCodeAt(0);
+
+                        info.innerHTML = '<h1>Teclado</h1>' +
+                        '<p>Carácter [' + letter + ']<p>'+
+                        '<p>Código [' + code + ']</p>';
+
+                        info.style.backgroundColor = '#cce6ff';
+                        break;
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <div id="info"></div>
+    </body>
+</html>

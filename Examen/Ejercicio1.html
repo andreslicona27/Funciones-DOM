@@ -5,32 +5,49 @@
         <meta http-equiv="X-UA-Compatible">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript">
+            window.onload = function(){
+                var btn = document.getElementById("borrar");
+                btn.addEventListener("click", tacharElemento);
+
+                var categories = document.getElementsByTagName("h3");
+                for (i in categories) {
+                    categories[i].onclick = figureCategory;
+                }
+            }
+            
             // PARTE UNO DEL EJERCICIO 
-            document.getElementById("alimentacion").onclick = anadirComida;
-            document.getElementById("higiene").onclick = anadirHigiene;
-            document.getElementById("hogar").onclick = anadirHogar;
+            function figureCategory() {
+                if (this.innerHTML == "Alimentación"){
+                    var alimentation = document.getElementById("alimentacion");
+                    insertElement(alimentation);
+                }
+                if (this.innerHTML == "Hogar"){
+                    var home = document.getElementById("hogar");
+                    insertElement(home);
+                }
+                if (this.innerHTML == "Higiene"){
+                    var hygiene = document.getElementById("higiene");
+                    insertElement(hygiene);
+                }
+            }
 
-            function anadirComida(){    
-                var listado = document.getElementById("alimentacion");
-                
-                var texto = prompt("Dame el producto que deseas agregar: ");
-                var elemento = document.createElement("ol");
-                var texto = document.createTextNode(producto);
+            function insertElement(list){    
+                var element = document.createElement("li");
+                var product = prompt("Dame el producto que deseas agregar: ");
+                var text = document.createTextNode(product);
 
-                elemento.appendChild(texto);
-                listado.appendChild(elemento);
+                element.appendChild(text);
+                list.appendChild(element);
             }
 
             // PARTE DOS DEL EJERCICIO 
-            document.getElementById('borrar').onclick = tacharElemento;
+            function crossElement(){
+                var product = prompt("Dame el elemento que deseas tachar: ");
+                var elements = document.getElementsByTagName("li");
 
-            function tacharElemento(){
-                var producto = prompt("Dame el elemento que deseas tachar: ");
-                var listado = document.getElementsByTagName("ol");
-
-                for(i = 0; i < listado.length; i++){
-                    if (listado[i].innerHTML == producto){
-                        listado[i].style = "textDecoration = \"line-through\"";
+                for(i = 0; i < elements.length; i++){
+                    if (elements[i].innerHTML == producto){
+                        elements[i].style.textDecoration = "line-through";
                     }
                 }
             }

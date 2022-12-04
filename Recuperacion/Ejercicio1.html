@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+    <head>
+        <title>Ejercicio 1</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            window.onload = function() {
+                var head = document.getElementById("encabezado");
+                var btn = document.getElementById("boton");
+
+                head.addEventListener("click", addSong);
+                btn.addEventListener("click", deleteSong)
+            }
+
+            function addSong() {
+                var list = document.getElementById("lista");
+                var songs = new Array();
+                
+                do{
+                    var song = prompt("Dame el nombre de la canción: ")
+                    songs.push(song);
+                } while (song != "");
+
+                for(i= 0; i < songs.length; i++){
+                    var element = document.createElement("li");
+                    var text = document.createTextNode(songs[i]);
+
+                    element.appendChild(text);
+                    list.appendChild(element);
+                }
+            }
+
+            function deleteSong(){
+                var list = document.getElementsByTagName("li");
+                var song = prompt("Dame la canción que deseas eliminar");
+                
+                for (i = 0; i < list.length; i++) {
+                    if (list[i].innerHTML == song){
+                        list[i].parentNode.removeChild(list[i]);
+                    }
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1 id="encabezado">Pulse para crear su playlist</h1>
+            <ol id="lista"></ol>
+            <button id="boton">Borrar Canción</button>
+
+    </body>
+</html>

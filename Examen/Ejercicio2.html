@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <head>
+        <title>Ejercicio 2 </title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            window.onload = function() {
+                document.onmousemove = quadrant;
+            }
+
+            function quadrant(object) {
+                var positionX = object.screenX;
+                var positionY = object.screenY;
+                var text = document.getElementById("message");
+
+                if (positionX <= 500 && positionY <= 500){
+                    text.innerHTML = "Superior Izquierda";
+                    document.body.style.background = "blue";
+                }
+
+                if (positionX > 500 && positionY < 500){
+                    text.innerHTML = "Superior Derecha";
+                    document.body.style.background = "red";
+                }
+
+                if (positionX < 500 && positionY > 500){
+                    text.innerHTML = "Inferior Izquierda";
+                    document.body.style.background = "yellow";
+                }
+
+                if (positionX > 500 && positionY > 500){
+                    text.innerHTML = "Inferior Derecha";
+                    document.body.style.background = "green";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1 id="message"></h1>
+    </body>
+</html>
